@@ -43,6 +43,7 @@ jobs:
         run: echo "Testing the container"
 
   deploy:
+    if: inputs.environment == 'dev'
     runs-on: ubuntu-latest
     needs: test
 
