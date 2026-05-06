@@ -20,4 +20,4 @@ jobs:
           sudo apt-get install -y docker.io
 
       - name: Deploy with Docker Compose
-        run: sudo DOCKERHUB_USER="${{ vars.DOCKERHUB_USER }}" docker compose up -d --build
+        run: sudo DOCKERHUB_USER="${{ vars.DOCKERHUB_USER }}" docker compose up -d --build --force-recreate 
