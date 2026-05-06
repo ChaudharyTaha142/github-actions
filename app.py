@@ -11,3 +11,6 @@ def hello_world():
 @app.route("/healthy")
 def healthy():
     return "server is healthy"
+
+app.run(debug=True, host="0.0.0.0", port=80)
+
