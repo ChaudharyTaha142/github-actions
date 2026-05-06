@@ -1,5 +1,7 @@
 services:
   web:
     image: ${DOCKERHUB_USER}/github-actions-app:latest
+    environment:
+      - FLASK_HOST=0.0.0.0
     ports:
       - "80:80"
