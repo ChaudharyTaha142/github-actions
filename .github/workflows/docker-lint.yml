@@ -1,5 +1,20 @@
+# Scan the Dockerfile for best practices and common issues using Hadolint.
+# This workflow provides feedback on any issues found in the Dockerfile.
 
-# Scan the dockerfile for best practices and common issues using Hadolint. This workflow runs on every push to the main branch and provides feedback on any issues found in the Dockerfile.
 name: Docker Lint
 
+on:
+  workflow_call:
 
+jobs:
+  validate-dockerfile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate Dockerfile with Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: ./Dockerfile

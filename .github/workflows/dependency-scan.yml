@@ -1,2 +1,29 @@
-# packages - issues ya vulnerabilities (scan)
-name: Depenedency Scan
+# Packages - issues ya vulnerabilities scan
+# pip-audit - Python dependency scanner
+# This workflow uses pip-audit to scan for vulnerabilities in your Python dependencies and alert you if any are found.
+
+name: Dependency Scan
+
+on:
+  workflow_call:
+
+jobs:
+  dependency-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Pip Audit
+        run: |
+          python -m pip install --upgrade pip
+          pip install pip-audit
+
+      - name: Audit dependencies
+        run: pip-audit -r requirements.txt
