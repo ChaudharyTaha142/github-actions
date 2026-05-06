@@ -14,5 +14,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install Docker on self-hosted runner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+
       - name: Deploy with Docker Compose
-        run: docker compose up -d --build
+        run: sudo docker compose up -d --build
