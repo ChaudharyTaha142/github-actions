@@ -7,6 +7,9 @@ jobs:
   deploy:
     runs-on: self-hosted
 
+    env:
+      DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
