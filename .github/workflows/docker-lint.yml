@@ -1,0 +1,5 @@
+
+# Scan the dockerfile for best practices and common issues using Hadolint. This workflow runs on every push to the main branch and provides feedback on any issues found in the Dockerfile.
+name: Docker Lint
+
+
